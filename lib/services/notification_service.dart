@@ -31,6 +31,8 @@ class NotificationService {
             importance: Importance.max,
             priority: Priority.high,
             playSound: true,
+            icon: 'app_icon',
+            largeIcon: DrawableResourceAndroidBitmap('app_icon'),
             sound: RawResourceAndroidNotificationSound('workend'),
             ticker: 'ticker');
     const NotificationDetails notificationDetails =
@@ -55,6 +57,8 @@ class NotificationService {
             priority: Priority.high,
             importance: Importance.max,
             playSound: true,
+            icon: 'app_icon',
+            largeIcon: DrawableResourceAndroidBitmap('app_icon'),
             sound: RawResourceAndroidNotificationSound('workend'),
           ),
         ),
@@ -70,12 +74,14 @@ class NotificationService {
       'repeating_channel_name',
       channelDescription: 'repeating description',
       playSound: true,
+      icon: 'app_icon',
+      largeIcon: DrawableResourceAndroidBitmap('app_icon'),
       sound: RawResourceAndroidNotificationSound('workend'),
     );
     const NotificationDetails notificationDetails =
         NotificationDetails(android: androidNotificationDetails);
     await _notificationsPlugin.periodicallyShow(2, 'repeating title',
-        'repeating body', RepeatInterval.everyMinute, notificationDetails,
+        'repeating body', RepeatInterval.hourly, notificationDetails,
         androidAllowWhileIdle: true);
   }
 
